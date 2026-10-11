@@ -1,0 +1,15 @@
+# build outputs (public/index.html is committed: Vercel serves it as-is)
+/test/
+/dist/
+# screenshots and tool output
+/shots/
+*.png
+!docs/screens/*.png
+# local tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vercel/
+.DS_Store
