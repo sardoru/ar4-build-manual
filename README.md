@@ -2,7 +2,7 @@
 
 An unofficial, animated, phone-first 3D build manual for the [Annin Robotics AR4](https://www.anninrobotics.com/) six-axis robot arm. It follows the **AR4 Robot Manual v1.5** step by step and draws every step on Annin's own CAD: parts fly into place, numbered marks point at what each instruction touches, and the finished arm moves through the same kinematics, joint limits and motor numbers the firmware uses.
 
-**Live site:** _added after the first Vercel deploy_
+**Live site:** https://ar4-build-manual.vercel.app
 
 ![Four phone pages: J1 platform, J3 bearing cup, J5 belt and mechanical zero, calibration](docs/screens/phone-pages.png)
 
