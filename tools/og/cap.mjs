@@ -1,0 +1,12 @@
+import { chromium } from 'playwright-core';
+const [file, out, hash] = process.argv.slice(2);
+const b = await chromium.launch({ channel: 'chrome', args: ['--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const p = await b.newPage({ viewport: { width: 1400, height: 1100 }, deviceScaleFactor: 2 });
+await p.goto('file://' + file + '#' + hash);
+await p.waitForTimeout(5000);
+await p.addStyleTag({ content: 'header,footer,.panel,.callout,.replay,.plan,.bubble,.fig,.hint,.ro,.scale,#dims,nav,.bar,.foot{display:none!important} .stage{position:fixed!important;inset:0!important}' });
+await p.evaluate(() => window.dispatchEvent(new Event('resize')));
+await p.waitForTimeout(2500);
+await p.screenshot({ path: out });
+console.log(await p.evaluate(() => [...document.querySelectorAll('body > *, .app > *')].map(e => e.tagName + '.' + e.className).join(' ')));
+await b.close();
