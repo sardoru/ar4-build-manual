@@ -13,3 +13,5 @@ __pycache__/
 venv/
 .vercel/
 .DS_Store
+!public/og.png
+tools/og/card.out.html

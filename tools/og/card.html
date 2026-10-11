@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=block">
+<style>
+:root{--paper:#fff;--ink:#141414;--ink-2:#5f5f5f;--ink-3:#8c8c8c;--rule:#e3e3e3;--callout:#f4f4f4;--accent:#f28c1e;--mono:"Geist Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:Geist,sans-serif}
+.card{position:relative;width:1200px;height:630px;overflow:hidden}
+/* faint drafting grid */
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:30px 30px;opacity:.45;
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 72% 50%,#000 30%,transparent 80%)}
+.render{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 360px,#000 520px,#000 1120px,transparent 1200px)}
+.render img{position:absolute;left:var(--x);top:var(--y);width:1260px;height:990px;filter:url(#gam)}
+/* top ruler like the page progress bar */
+.ruler{position:absolute;left:0;right:0;top:0;height:10px;border-top:3px solid var(--ink);
+  background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 40px)}
+.ruler i{position:absolute;left:0;top:-3px;height:3px;width:100%;background:var(--accent)}
+header{position:absolute;left:56px;right:56px;top:34px;display:flex;justify-content:space-between;align-items:baseline}
+header b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+header span{font:500 14px var(--mono);color:var(--ink-2)}
+.copy{position:absolute;left:56px;top:118px;width:470px}
+.fig{font:500 15px var(--mono);color:var(--ink-2);margin:0 0 18px}
+.fig b{color:var(--ink);font-weight:600}
+h1{font-size:74px;line-height:.98;letter-spacing:-.035em;font-weight:700;margin:0 0 22px}
+h1 em{font-style:normal;color:var(--accent)}
+p.lede{font-size:21px;line-height:1.38;color:var(--ink-2);margin:0;width:430px}
+.specs{position:absolute;left:56px;bottom:96px;display:flex;gap:0;border:1px solid var(--ink);border-radius:2px;background:var(--paper)}
+.specs div{padding:9px 16px 8px;border-right:1px solid var(--rule);font:500 12.5px var(--mono);color:var(--ink-3);line-height:1.25}
+.specs div:last-child{border-right:0}
+.specs b{display:block;font:600 21px var(--mono);color:var(--ink);letter-spacing:-.02em;margin-top:2px}
+footer{position:absolute;left:0;right:0;bottom:0;height:62px;border-top:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:var(--paper)}
+footer .url{font:600 18px var(--mono);color:var(--ink)}
+footer .url::before{content:"";display:inline-block;width:10px;height:10px;background:var(--accent);border-radius:50%;margin-right:12px;vertical-align:1px}
+footer .note{font:500 13.5px var(--mono);color:var(--ink-3)}
+/* callout marks, same drawing language as the page */
+.mk{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--ink);color:#fff;font:600 13px/30px var(--mono);text-align:center;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--ink);z-index:2}
+.mk.hot{background:var(--accent);box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--accent)}
+.dot{position:absolute;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px #fff}
+svg.lead{position:absolute;inset:0;width:1200px;height:630px}
+.dim{position:absolute;font:500 13px var(--mono);background:var(--paper);border:1px solid var(--ink);border-radius:2px;padding:2px 7px;white-space:nowrap}
+.stamp{position:absolute;right:56px;top:96px;text-align:right;font:500 12.5px/1.5 var(--mono);color:var(--ink-3);border:1px solid var(--rule);background:var(--callout);border-radius:2px;padding:8px 11px}
+.stamp b{color:var(--ink);font-weight:600}
+</style></head>
+<body><div class="card">
+  <div class="grid"></div>
+  <div class="render"><img src="done.png" style="--x:VARX;--y:VARY"></div>
+  <div class="ruler"><i style="width:34%"></i></div>
+  <header><b>AR4 build manual</b><span>Unofficial guide · AR4 Robot Manual v1.5</span></header>
+  <div class="copy">
+    <p class="fig"><b>Fig 1</b>&nbsp; Annin Robotics AR4 · six axes</p>
+    <h1>Build the arm, <em>step by step.</em></h1>
+    <p class="lede">An animated 3D build manual drawn on Annin’s own CAD. Parts fly into place, then the arm moves.</p>
+  </div>
+  <div class="specs">
+    <div>Pages<b>30</b></div>
+    <div>Joints<b>J1–J6</b></div>
+    <div>Reach<b>629 mm</b></div>
+    <div>Payload<b>1.9 kg</b></div>
+  </div>
+  <svg width="0" height="0" style="position:absolute"><filter id="gam" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="gamma" exponent="2.1"/><feFuncG type="gamma" exponent="2.1"/><feFuncB type="gamma" exponent="2.1"/></feComponentTransfer></filter></svg><svg class="lead" id="lead"></svg>
+  <div id="marks"></div>
+  <footer><span class="url">ar4-build-manual.vercel.app</span><span class="note">Phone-first · free · not an Annin Robotics product</span></footer>
+</div>
+<script>
+// [label, point x,y on the render, mark x,y]
+const M = MARKS;
+const svg = document.getElementById('lead'), box = document.getElementById('marks');
+for (const [t, px, py, mx, my, hot] of M) {
+  svg.insertAdjacentHTML('beforeend', `<line x1="${px}" y1="${py}" x2="${mx}" y2="${my}" stroke="${hot ? '#f28c1e' : '#141414'}" stroke-width="1.5"/>`);
+  box.insertAdjacentHTML('beforeend', `<span class="dot" style="left:${px}px;top:${py}px;${hot ? 'background:#f28c1e' : ''}"></span><span class="mk${hot ? ' hot' : ''}" style="left:${mx}px;top:${my}px">${t}</span>`);
+}
+</script>
+</body></html>
